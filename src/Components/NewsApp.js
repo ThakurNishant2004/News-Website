@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from './Card'
 const NewsApp = () => {
+  const[search,setsearch] = useState("india");
+  const[newsData,setNewsData] = useState(null)
+   const API_KEY = "f9bc0525eb7c4c1cb9f5c7c968e1c07d";
+   const getData = async()=>{
+        const response = await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`) ;
+     const jsonData = await response.json() ;
+     console.log(jsonData.articles);
+     setNewsData(jsonData.articles);
+      }
+
+      const handleInput =(e)=>{
+        console.log(e.target.value);
+        setsearch(e.target.value);
+      }
   return (
     <div>
       <nav className='navbar'>
@@ -13,8 +27,8 @@ const NewsApp = () => {
             <li>Trending news</li>
         </ul>
         <div className='searchbar'>
-            <input id='search-news' type="text" placeholder='Search news' />
-            <button className='search-btn'>Search</button>
+            <input id='search-news' type="text" placeholder='Search news' onChange={handleInput} />
+            <button onClick={getData} className='search-btn' >Search</button>
         </div>
         </div>
         <div className="l2">
@@ -28,9 +42,8 @@ const NewsApp = () => {
          </div>
         </div>
       </nav>
-         <div>
-            <Card/>
-         </div>
+      <div>
+      {newsData?  <Card data={newsData}/> : null} </div>
     </div>
   )
 }
