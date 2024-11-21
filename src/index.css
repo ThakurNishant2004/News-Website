@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+nav{
+   align-items: center;
+}
+.navbar{
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  color: aliceblue;
+}
+.l1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.btn{
+  margin-right: 2em;
+  width: auto;
+  padding : 0 3em;
+  height: 4vh;
+  border-radius: 15px ;
+  background-color: rgb(132, 195, 206);
+  font-weight: bold;
+  font-size: 0.8em;
+}
+.list{
+  list-style: none;
+  display: flex;
+  gap: 2em;
+ 
+}
+.btntype{
+  margin-left: 2em;
+}
+
+#search-news{
+  font-size: 1.2em;
+   margin-right: 1vw;
+}
+.search-btn{
+  font-size: 1.2em;
+}
+
