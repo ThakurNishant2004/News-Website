@@ -8,6 +8,11 @@ const Card = ({data}) => {
   return (
     <div className='cardContainer'>
       {data.map((curData,index)=>{
+        if(!curData.urlToImage){
+          return null
+        }
+        else{
+          
         return (
           <div className='card'>
                <img src={curData.urlToImage}/>
@@ -18,6 +23,7 @@ const Card = ({data}) => {
                </div>
           </div>
         )
+        }
       })}
     </div>
   )
